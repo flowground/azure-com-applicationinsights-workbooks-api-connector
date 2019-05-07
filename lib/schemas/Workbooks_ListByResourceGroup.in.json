@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "category": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "workbook",
+                "TSG",
+                "performance",
+                "retention"
+            ]
+        },
+        "tags": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "sourceId": {
+            "required": true,
+            "type": "string"
+        },
+        "canFetchContent": {
+            "required": false,
+            "type": "boolean"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

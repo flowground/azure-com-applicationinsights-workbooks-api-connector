@@ -1,0 +1,129 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "sourceId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "An azure resource object",
+                    "properties": {
+                        "id": {
+                            "description": "Azure resource Id",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "The kind of workbook. Choices are user and shared.",
+                            "enum": [
+                                "user",
+                                "shared"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "SharedTypeKind"
+                            }
+                        },
+                        "location": {
+                            "description": "Resource location",
+                            "type": "string",
+                            "x-ms-mutability": [
+                                "create",
+                                "read"
+                            ]
+                        },
+                        "name": {
+                            "description": "Azure resource name. This is GUID value. The display name should be assigned within properties field.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Azure resource type",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "An Application Insights workbook definition.",
+            "properties": {
+                "properties": {
+                    "description": "Metadata describing a workbook for an Azure resource.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "category": {
+                            "description": "Workbook category, as defined by the user at creation time.",
+                            "type": "string"
+                        },
+                        "displayName": {
+                            "description": "The user-defined name (display name) of the workbook.",
+                            "type": "string"
+                        },
+                        "serializedData": {
+                            "description": "Configuration of this particular workbook. Configuration data is a string containing valid JSON",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "description": "A list of 0 or more tags that are associated with this workbook definition",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "timeModified": {
+                            "description": "Date and time in UTC of the last modification that was made to this workbook definition.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "userId": {
+                            "description": "Unique user id of the specific user that owns this workbook.",
+                            "type": "string"
+                        },
+                        "version": {
+                            "description": "Workbook version",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "displayName",
+                        "category",
+                        "serializedData",
+                        "userId"
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

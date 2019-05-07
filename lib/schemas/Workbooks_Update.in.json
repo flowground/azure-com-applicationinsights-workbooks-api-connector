@@ -1,0 +1,75 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "sourceId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The parameters that can be provided when updating workbook properties properties.",
+            "properties": {
+                "kind": {
+                    "description": "The kind of workbook. Choices are user and shared.",
+                    "enum": [
+                        "user",
+                        "shared"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "SharedTypeKind"
+                    }
+                },
+                "properties": {
+                    "description": "Metadata describing a workbook for an Azure resource.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "category": {
+                            "description": "Workbook category, as defined by the user at creation time.",
+                            "type": "string"
+                        },
+                        "displayName": {
+                            "description": "The user-defined name (display name) of the workbook.",
+                            "type": "string"
+                        },
+                        "serializedData": {
+                            "description": "Configuration of this particular workbook. Configuration data is a string containing valid JSON",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "description": "A list of 0 or more tags that are associated with this workbook definition",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    }
+                },
+                "tags": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Resource tags",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
