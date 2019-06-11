@@ -5,7 +5,7 @@
 A generated **flow**ground connector for the ApplicationInsightsManagementClient API (version 2018-06-17-preview).
 
 Generated from: https://api.apis.guru/v2/specs/azure.com/applicationinsights-workbooks_API/2018-06-17-preview/swagger.json<br/>
-Generated at: 2019-05-07T17:37:16+03:00
+Generated at: 2019-06-11T18:13:19+03:00
 
 ## API Description
 
